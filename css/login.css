@@ -4,45 +4,44 @@
   width: 700px;
   height: 750px;
   transform: translateY(25%);
-  border: 2px solid gray;
-  /* background-color: yellowgreen; */
+  border: 3px solid #d3d3d379;
 }
 
 .logoSection {
   text-align: center;
   height: 230px;
   width: auto;
-  /* top: 40px; */
   display: inline-block;
+}
 
-  /* background-color: violet; */
+.logoImg {
+  background-image: url(../image/instagram.png);
 }
 
 .westagramLogo {
   font-family: "Lobster", cursive;
   text-align: center;
   line-height: 200px;
-  /* font-weight: 50px; */
   font-size: 90px;
   font-weight: lighter;
-  /* background-color: blue; */
+}
+
+::placeholder {
+  color: #36363679;
 }
 
 input {
-  color: rgb(206, 206, 206);
   height: 80px;
   width: 535px;
   margin-bottom: 10px;
   padding-left: 25px;
-  background-color: hsla(0, 0%, 96%, 0.8);
-  /* border: 1px solid gray; */
-  border: 2px solid;
-  border-radius: 8px;
-  border-color: rgba(172, 172, 172, 0.8);
+  background-color: hsla(0, 0%, 95%, 0.8);
+  border: 2px solid #e0e0e052;
+  border-radius: 6px;
   font-size: 25px;
 }
 
-#logIn {
+#login {
   width: 535px;
   height: 60px;
   font-size: 30px;
@@ -56,7 +55,10 @@ input {
 }
 
 .forgetId > a {
-  text-decoration: none;
   font-size: 25px;
   color: #1b4776;
+}
+
+ul {
+  text-decoration: none;
 }
