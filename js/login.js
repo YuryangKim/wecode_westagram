@@ -8,6 +8,12 @@ const id = document.querySelector("#id");
 const password = document.querySelector("#password");
 const loginBtn = document.querySelector("#login");
 const input = document.querySelector("#input");
+// const IsvaildId =  
+// const IsvailPw =
+
+
+
+
 
 id.addEventListener("keyup", function (event) {
   if (!!id.value && !!password.value) {
@@ -16,6 +22,10 @@ id.addEventListener("keyup", function (event) {
   } else !id.value && !password.value;
   button.removeAttribute("disabled", true);
   button.style.backgroundColor = "#c4e1fb";
+  
+  // moveLogin();
+  
+
 });
 
 password.addEventListener("keyup", function (event) {
@@ -25,4 +35,10 @@ password.addEventListener("keyup", function (event) {
   } else !id.value && !password.value;
   button.removeAttribute("disabled", true);
   button.style.backgroundColor = "#c4e1fb";
+
+  // moveLogin();
 });
+
+// function moveLogin(){
+//   loaction.href="http://127.0.0.1:5500/main.html"
+// }

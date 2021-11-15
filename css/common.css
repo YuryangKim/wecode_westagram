@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+a {
+  box-sizing: content-box;
+}
+
 /* blind 처리 */
 .blind {
   position: absolute;
@@ -12,6 +16,10 @@
   height: 1px;
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+body {
+  background-color: rgba(235, 235, 235, 0.2);
 }
 
 a {

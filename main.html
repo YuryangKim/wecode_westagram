@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- CSS 파일 위치 -->
-  <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/main.css" />
 
   <!-- 폰트 설정 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
 
   <!-- JS 파일 위치 -->
-  <script defer src="../westagram/login.js"></script>
+  <script defer src="js/main.js"></script>
 
   <!-- 아이콘 -->
   <script defer src="https://kit.fontawesome.com/d4bcf9a929.js" crossorigin="anonymous"></script>
@@ -28,6 +28,7 @@
   <!-- header -->
   <header>
     <div class="headerArea">
+
       <!-- 헤더 왼쪽 로고 영역 -->
       <div class="headerLogoArea">
 
@@ -44,22 +45,30 @@
       <i class="fas fa-search"></i>
       <form name="SearchBarForm" action="login.js" method="post">
         <label for="searchBar">
-          <input type="text" name="" id="searchBar" placeholder="검색" />
+          <input type="text" name="searchBar" id="headerSearchBar" placeholder="검색" />
         </label>
     </div>
 
     <!-- 헤더 오른쪽 아이콘 영역-->
     <div class="headerIconsArea">
       <!--웹 접근성, background-image를 쓰기 위해 div사용 span은 blind처리 -->
-      <div class="exploreImg">
-        <span class="blind">탐색하기</span>
-      </div>
-      <div class="heartImg">
-        <span class="blind">활동 피드</span>
-      </div>
-      <div class="profileImg">
-        <span class="blind">프로필</span>
-      </div>
+      <!-- 탐색하기 -->
+      <a href="">
+        <div class="exploreImg">
+          <span class="blind">탐색하기</span>
+        </div>
+      </a>
+      <!-- 활동피드 -->
+      <a href="">
+        <div class="heartImg">
+          <span class="blind">활동 피드</span>
+        </div>
+      </a>
+      <a href="">
+        <div class="profileImg">
+          <span class="blind">프로필</span>
+        </div>
+      </a>
     </div>
   </header>
 
@@ -71,7 +80,7 @@
       <!-- feeds의 계정 영역  -->
       <div class="feedsAccountArea">
         <img src="image/otherprofile.png" alt="계정 사진">
-        <span>
+        <span class="userName">
           <p>y.raeng_</p>
           <p>・・・</p>
         </span>
@@ -82,57 +91,82 @@
         <h2 class="blind">사진</h2>
       </article>
 
-      <!-- feeds의 사진 하단 -->
+      <!-- feeds의 사진 하단 전체 영역 -->
       <div class="feedsUnderArea">
 
-        <!--feeds 아이콘-->
-        <div class="feedsFooterIcons">
-          <i class="fas fa-heart"></i>
-          <i class="far fa-comment"></i>
-          <i class="far fa-paper-plane"></i>
-          <i class="far fa-bookmark"></i>
-        </div>
+        <!-- 댓글창 넘침 방지를 위해 height 지정하기 위해 div로 한 번 묶음 -->
+        <div class="feedsUnderCommentArea">
 
-        <!-- ~가 좋아합니다  -->
-        <div class="likes">
-          <span>
+          <!--feeds 아이콘-->
+          <!-- i tag 대신에 css에 font-family: "fontawsome" /content: "\유니코드" color 스타일링도 가능-->
+          <div class="feedsUnderAreaIcons">
+            <i class="fas fa-heart"></i>
+            <i class="far fa-comment"></i>
+            <i class="far fa-paper-plane"></i>
+            <i class="far fa-bookmark"></i>
+          </div>
+
+          <!-- ~가 좋아합니다  -->
+          <div class="feedsLikes">
             <i class="fas fa-user-circle"></i>
-          </span>
+            <span id="feedsLikesAccount">
+              anieworld
+            </span>
+            <p> 님</p>
+            <span id=feedsLikesCount>외 10명</span>
+            <p>이 좋아합니다.</p>
+            </span>
+          </div>
 
-          <span>
-            <p><b>anieworld</b>님 외 <b>10명</b>이 좋아합니다.</p>
-          </span>
-
-          <span>
-            <p><b>canon_mj</b>위워크에서 진행한 베이킹 클래스...</p>
-          </span>
-          <span>
-            <p>더보기</p>
-          </span>
+          <!--댓글 내용 -->
+          <div class="commentArea">
+            <ul class="commentContent">
+              <li class="commentId">canon_mj</li>
+              <li class="comment">무보정 실화?...</li>
+              <!-- ...inlineblock/width/white-space/text-overflow:ellipsis/overflow:hidden 적용 -->
+              <li class="moreComment">더 보기</li>
+              <li class="commentTime">42분 전</li>
+            </ul>
+            <i class="far fa-heart"></i>
+          </div>
         </div>
 
-        <!-- 댓글 달기, 게시 -->
-        <div class="comment">
-          <form action="" method="post">
-            <label for="">
-              <input type="button" value="" placeholder="댓글 달기...">
-            </label>
-          </form>
+        <!-- 댓글 달기, 게시  -->
+        <div class="commentsRepleArea">
+          <div id="commentRow">
+            <textarea id="newComment" name="newComment" cols="50" rows="2" placeholder="댓글 달기..."></textarea>
+            <button id=commentSubmit type="button" type="submit">게시</button>
+          </div>
         </div>
       </div>
-
     </div>
 
-    <!-- 오른쪽 영역 푸터 포함 묶기-->
+    <!-- 오른쪽 영역 푸터 포함-->
     <div class="mainRightArea">
       <!-- 오른쪽 영역 위쪽 계정 부분 -->
-      <div class="mainRightMyAccount"></div>
+      <div class="myAccount">
+        <!-- 내 계정 -->
+        <ul id="myAccountArea">
+          <li id="myAccountImage">
+            <span class="blind">내 프로필</span>
+          </li>
+          <li id="myAccountId">RyangO_O</li>
+          <li id="myAccountIntroduce">27기 위코더</li>
+        </ul>
+      </div>
 
       <!-- 스토리 -->
-      <div class="mainRightStories"></div>
+      <div class="mainRightStories">
+        <ul>
+          <li class="storiesProfile">
+            <span class="storiesId">_Help</span>
+            <span class="storiesTime">16분 전</span>
+          </li>
+        </ul>
+      </div>
 
       <!-- 회원님을 위한 추천 -->
-      <div class="mainRightRecommand"></div>
+      <div class="maingRightRecommands"></div>
 
       <!-- footer -->
       <footer class="footer">
@@ -152,6 +186,7 @@
         </ul>
       </footer>
     </div>
+  </div>
   </div>
 </body>
 

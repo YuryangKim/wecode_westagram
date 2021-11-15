@@ -1,7 +1,13 @@
 header {
+  background-color: white;
   display: flex;
   justify-content: center;
-  height: 60px;
+  padding: 20px 0 20px 0;
+  border: 2px solid rgb(226, 226, 226);
+}
+
+input {
+  outline: none;
 }
 
 /* 헤더 왼쪽 로고 영역 */
@@ -16,8 +22,8 @@ header {
 .logoImg {
   display: inline-block;
   margin-right: 10px;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   background-image: url("../image/instagram.png");
   background-size: cover;
 }
@@ -26,7 +32,7 @@ h1 {
   display: inline-block;
   font-family: "Lobster", cursive;
   font-weight: lighter;
-  font-size: x-large;
+  font-size: xx-large;
   text-align: center;
 }
 
@@ -40,27 +46,29 @@ h1::before {
 /* 헤더 중간 서치 영역 */
 .headerSearchBarArea {
   position: relative;
-  padding: 15px 280px 15px 360px;
+  padding: 15px 300px 15px 300px;
 }
 
 .fa-search {
-  font-size: 10px;
+  font-size: 15px;
   position: absolute;
-  top: 26px;
-  left: 390px;
+  top: 33px;
+  left: 401px;
   color: #36363679;
 }
 
-input {
-  background-color: rgba(214, 214, 214, 0.2);
+#headerSearchBar {
+  padding: 3px 70px 5px 70px;
+  margin-top: 5px;
+  /* background-color: rgba(214, 214, 214, 0.2); */
   border: 2px solid rgb(226, 226, 226);
-  border-radius: 3px;
   text-align: center;
-  width: 220px;
-  height: 30px;
+  line-height: 30px;
 }
 
 ::placeholder {
+  padding-top: 2px;
+  font-size: large;
   color: #36363679;
 }
 
@@ -99,32 +107,37 @@ input {
 
 /* 메인 */
 .main {
-  padding-top: 60px;
+  padding: 80px 0 80px 0px;
   max-width: 1245px;
-  transform: translateX(20%);
+  transform: translateX(40%);
 }
 
 .feeds {
-  display: inline-block;
   width: 780px;
-  height: 60px;
+  height: auto;
 }
+
+/* 댓글 넘침 방지 height 설정 추가 하면 창이 늘어나는 함수를 나중에 만들어야 하나?*/
+/* .feedsUnderCommentArea{
+  height: 250px;
+  background-color: yellow;
+} */
 
 /* 피즈 계정 영역 */
 .feedsAccountArea {
   position: relative;
   justify-content: left;
-  height: 50px;
+  padding-top: 80px;
   border: 1px solid rgb(194, 194, 194);
   background-color: white;
 }
 
 .feedsAccountArea img {
-  top: 9px;
-  left: 10px;
+  top: 20px;
+  left: 20px;
   position: absolute;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
   border-radius: 50%;
   border: 1px solid rgb(194, 194, 194);
@@ -132,16 +145,17 @@ input {
 
 .feedsAccountArea p {
   position: absolute;
-  top: 17px;
-  left: 70px;
+  top: 27px;
+  left: 85px;
   font-weight: bolder;
+  font-size: x-large;
 }
 
 .feedsAccountArea p:last-child {
   position: absolute;
-  top: 14px;
-  left: 740px;
-  font-size: x-large;
+  top: 25px;
+  left: 720px;
+  font-size: xx-large;
 }
 
 /* 피즈 사진 영역 */
@@ -149,49 +163,184 @@ input {
   width: 780px;
   height: 680px;
   background-image: url(../image/cloud.jpg);
-  background-color: coral;
   background-size: cover;
   overflow: hidden;
 }
 
-/* 피즈 사진 하단 */
+/* 피즈 사진 하단 아이콘 영역*/
 .feedsUnderArea {
   border: 1px solid rgb(194, 194, 194);
+  padding-top: 15px;
+  background-color: white;
 }
 
-.feedsFooterIcons {
-  padding: 10px 5px 0 10px;
+.feedsUnderAreaIcons {
+  padding: 0 20px 5px 10px;
+  font-size: 1.8rem;
 }
 
-i {
-  padding-right: 12px;
-  font-size: 1.5rem;
+.feedsUnderAreaIcons > i:nth-child(-n + 3) {
+  margin-right: 10px;
+  
 }
 
-div > i:last-child {
-  margin-left: 600px;
+.fa-bookmark {
+  padding-left: 580px;
 }
 
-/* likes */
+/* 님 외  */
+.feedsLikes {
+  display: flex;
+  padding: 10px 0 0 12px;
+}
 
-.likes {
+.fa-user-circle {
+  font-size: 1.6rem;
+  padding-right: 10px;
+}
+
+#feedsLikesAccount,
+#feedsLikesCount {
+  font-weight: bold;
+  font-size: large;
+}
+
+#feedsLikesCount {
+  padding-left: 5px;
+}
+
+/* 댓글 내용 */
+/* 댓글 새로 추가되면 틀 안에 들어가야하므로 높이 설정해줘야함 댓글 토탈창 */
+.commentArea {
+  padding: 10px 20px 7px 15px;
+  font-size: large;
+  border-bottom: 1px solid rgb(194, 194, 194);
+}
+
+.commentContent{
+  display: flex;
+}
+
+.commentId {
+  font-weight: bold;
+}
+
+.comment{
+  display: flex;
+  text-align: end;
   padding-left: 10px;
-  padding-top: 3px;
+  font-size: large;
 }
 
-.likes > span > p {
-  display: inline-block;
+.moreComment {
+  color: #36363679;
 }
 
-/* 오른쪽 영역 스토리 */
+.commentTime {
+  display: flex;
+  margin-left: auto;
+  padding: 5px 0 0 150px;
+  font-size: large;
+  color: #36363679;
+  background-color: red;
+}
+
+.commentContent > i {
+  display: flex;
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+/* 댓글 달기, 게시 폼 */
+
+#newComment {
+  display: inline;
+  padding: 20px 0 0 20px;
+  border: 0;
+  outline: 0;
+  resize: none;
+  font-size: x-large;
+}
+
+#commentSubmit {
+  transform: translate(120%, -90%);
+  outline: 0;
+  border: 0;
+  font-size: large;
+  color:#c4e1fb;
+  background-color: white;
+  cursor: pointer;
+}
+.active{
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+/* 오른쪽 영역 */
 .mainRightArea {
-  float: right;
+  position: absolute;
+  top: 70px;
+  right: 2%;
   width: 390px;
   padding-bottom: 100px;
-  /* border: 2px solid darkgreen; */
 }
 
-/* 푸터 */
+#myAccountImage {
+  background-image: url(/image/profile2.png);
+  background-size: cover;
+  border-radius: 50%;
+  border: 3px solid red;
+  width: 80px;
+  height: 80px;
+  transform: translate(20%, 20%);
+}
+
+
+#myAccountId {
+  transform: translate(30%,-200%);
+  font-weight: bold;
+  font-size: large;
+  color: black;
+}
+
+
+#myAccountIntroduce {
+  transform: translate(30%, -210%);
+  color: #36363679;
+  font-size: large;
+}
+
+
+/* 스토리*/
+.mainRightStories{
+  border: 2px solid rgb(194, 194, 194);
+  background-color: white;
+  margin-top: 30px;
+  padding: 10px 0 30px 10px;
+}
+
+.storiesId{
+  background-image: url(/image/profile3.png);
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid red;
+}
+
+/* #storiesTime {
+} */
+
+/* .Recommands{
+  border: 2px solid rgb(194, 194, 194);
+  background-color: white;
+} */
+/* >는 바로 자식요소 띄어쓰기는 자식요소 전부 */
 
 footer > ul > li > a {
   color: rgb(162, 162, 162);
@@ -203,6 +352,5 @@ footer > ul > li > a:after {
 }
 
 .footer > ul > li:last-child a:after {
-  /* color: brown; */
   content: " ";
 }
